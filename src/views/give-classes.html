@@ -34,7 +34,8 @@
        </header>
 
        <main>
-            <form action="" id="create-class">
+            <form action="/save-class" id="create-class" method="POST"> 
+                <!-- Esse POST tira os dados do URL, usando body em vez de query-->
                 <fieldset>
                     <legend>Seus dados</legend>
 
@@ -68,7 +69,7 @@
                         <select name="subject" id="subject">
 
                             {%for subject in subjects %}
-                            <option value="{{loop.index}}" {{ "selected" if filters.subject == loop.index }}> {{subject}} </option>
+                            <option value="{{loop.index}}"> {{subject}} </option>
                         {%endfor%}
  
                         </select>
@@ -77,7 +78,7 @@
                     <div class="input-block">
                         <label for="cost"> Custo da sua hora/aula
                         </label>
-                        <input name="cosst" id="cost" type="number" required placeholder="R$">
+                        <input name="cost" id="cost" type="number" required placeholder="R$">
                     </div>
                 </fieldset>
 
@@ -92,10 +93,10 @@
 
                         <div class="select-block">
                             <label for="weekday"> Dia da semana</label>
-                            <select name="weekday[]" required>
+                            <select name="weekday[]" id="weekday" required>
 
                                 {%for weekday in weekdays %}
-                                <option value="{{loop.index0}}" {{ "selected" if filters.weekday == loop.index0 }}> {{weekday}}
+                                <option value="{{loop.index0}}"> {{weekday}}
                                 </option>
                             {%endfor%}
 
@@ -104,12 +105,12 @@
 
                         <div class="input-block">
                             <label for="time_from">Das</label>
-                            <input type="time" id="time_from[]" required>
+                            <input name="time_from" id="time_from" type="time" required>
                         </div>
 
                         <div class="input-block">
                             <label for="time_to">Até</label>
-                            <input type="time" id="time_to[]" required>
+                            <input name="time_to" id="time_to" type="time" required>
                         </div>
                     </div>
                 </fieldset>

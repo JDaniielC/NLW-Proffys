@@ -20,6 +20,11 @@
     font: 1.6rem Archivo;
 }
 
+.select-block #subject {
+    padding: 0 0.6rem;
+    font: 1.4rem Archivo;
+}
+
 .textarea-block textarea {
     padding: 1.2rem 1.6rem;
     height: 16rem;
